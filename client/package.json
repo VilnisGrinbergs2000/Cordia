@@ -27,16 +27,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "hash-wasm": "^4.12.0",
-    "lucide-react": "^0.468.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0",
+    "hash-wasm": "^4.13.0",
+    "lucide-react": "^1.72.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
     "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
     "@twemoji/svg": "^15.0.0",
-    "@vitejs/plugin-react": "^4.3.4",
-    "vite": "^6.0.7"
+    "@vitejs/plugin-react": "^6.3.0",
+    "vite": "^8.3.8"
   }
 }

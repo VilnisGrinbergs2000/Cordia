@@ -54,8 +54,8 @@ The public instance at **<https://cordia.ext.io>** runs this code.
 
 | Layer | Technology |
 | ----- | ---------- |
-| Client | React 18, Vite 6, React Router 6, Socket.IO client, `lucide-react`, `hash-wasm` |
-| API | Node.js 22+, Express 4, Socket.IO 4, PostgreSQL (`pg`), JWT, bcryptjs, multer, nodemailer, `web-push`, Helmet |
+| Client | React 19, Vite 8, React Router 7, Socket.IO client, `lucide-react`, `hash-wasm` |
+| API | Node.js 22+, Express 5, Socket.IO 4, PostgreSQL (`pg`), JWT, bcryptjs, multer, nodemailer, `web-push`, Helmet |
 | Realtime | Socket.IO rooms for chat and signalling, WebRTC for media |
 | Data | PostgreSQL 14+; forward-only SQL migrations applied on boot |
 | Desktop | Electron 45, electron-builder, `electron-updater`, custom `cordia://app` protocol |

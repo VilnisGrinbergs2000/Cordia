@@ -8,7 +8,7 @@ Read [Architecture](architecture.md) first if you have not. It explains the requ
 
 ```text
 Cordia/
-├── client/                  React 18 + Vite 6 web app
+├── client/                  React 19 + Vite 8 web app
 │   ├── src/
 │   │   ├── components/      UI components (JSX)
 │   │   ├── styles/          Plain CSS, imported through styles.css
@@ -138,7 +138,7 @@ module.exports = router;
 
 Rules that matter:
 
-- **Always use `asyncHandler`.** Express 4 does not catch rejected promises; without it a thrown error hangs the request.
+- **Always use `asyncHandler`.** Express 5 forwards rejected promises from async handlers, but the wrapper keeps every route on the same explicit error path and makes the intent clear during review.
 - **Always parameterize SQL.** `query('... WHERE id = $1', [id])`, never string interpolation.
 - **Use `withTransaction` for multi-write operations.** It stores the client in `AsyncLocalStorage`, so helpers called inside it join the same transaction instead of checking out a second connection.
 - **Check authorization on the server.** Use `assertChannelAccess`, `hasServerPermission`, `getMembership`, or the resource owner check. The client mirrors the rules only to hide controls.

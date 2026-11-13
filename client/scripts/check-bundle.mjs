@@ -141,10 +141,15 @@ const sum = (entries, key) => entries.reduce((total, entry) => total + entry[key
 //               note (+0.4 KiB gzip). Total 274 -> 275. JS stays at 224: the
 //               overlay itself is Electron-side HTML, not part of the bundle,
 //               and the renderer side is one hook plus one card (222.7 used).
+//   224 -> 246  React 19, React Router 7 and Vite 8. The app's own entry chunk
+//               shrank, but the shared framework chunk grew by ~23 KiB gzip;
+//               total 275 -> 297. CSS stays at 52. This is a one-time framework
+//               upgrade, not a feature, so the new ceilings keep the same
+//               ~1 KiB of slack rather than hiding room for another screen.
 const budgets = {
-  jsGzip: 224 * 1024,
+  jsGzip: 246 * 1024,
   cssGzip: 52 * 1024,
-  totalGzip: 275 * 1024
+  totalGzip: 297 * 1024
 };
 
 const totals = {
