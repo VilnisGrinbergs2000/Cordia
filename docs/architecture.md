@@ -259,7 +259,7 @@ Interactions are single-use tokens stored in `interactions`:
 
 ## Frontend
 
-The client is React 18 with Vite 6 and React Router 6. It is JavaScript and JSX, not TypeScript.
+The client is React 19 with Vite 8 and React Router 7. It is JavaScript and JSX, not TypeScript.
 
 - **Bootstrap** — `App.jsx` calls `/api/auth/me`, applies theme preferences, and decides between the auth page, the invite page, the application authorize page, the admin console, the insights page, and the main `Shell`.
 - **API wrapper** — `client/src/api.js` attaches the native bearer token, sends credentials appropriately, converts non-2xx responses into `Error` objects with `status` and optional `code`, stores the native session token, and keeps the upload token fresh.

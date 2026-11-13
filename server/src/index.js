@@ -399,7 +399,7 @@ if (fs.existsSync(clientDist)) {
   app.get('/app', (req, res) => sendAppShell(res, appIndex));
   // Deep links (/app/admin/users) and the trailing slash both fall here and the
   // client router takes over from the served shell.
-  app.get('/app/*', (req, res) => sendAppShell(res, appIndex));
+  app.get('/app/*splat', (req, res) => sendAppShell(res, appIndex));
 
   // Two links the app hands out are pasted into chat clients, e-mail and forum
   // posts, so they arrive without the /app prefix: an invite (built by
