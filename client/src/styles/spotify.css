@@ -1,0 +1,297 @@
+/* Listening to Spotify. The green is Spotify's own brand green rather than the
+   app accent, because the point of the colour is to say which service the track
+   came from. */
+:root {
+  --spotify: #1ed760;
+  --spotify-soft: rgba(30, 215, 96, 0.14);
+}
+
+.listening-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+  flex: 0 0 auto;
+}
+
+.listening-bars i {
+  width: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transform-origin: bottom;
+  animation: listening-pulse 1.1s ease-in-out infinite;
+}
+
+.listening-bars i:nth-child(1) { height: 5px; }
+.listening-bars i:nth-child(2) { height: 9px; animation-delay: 0.18s; }
+.listening-bars i:nth-child(3) { height: 6px; animation-delay: 0.36s; }
+
+@keyframes listening-pulse {
+  0%, 100% { transform: scaleY(0.45); }
+  50% { transform: scaleY(1); }
+}
+
+/* The one-line form under a name. */
+.listening-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--spotify);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.listening-line-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The card form: profile and the top of the status menu. */
+.listening-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--spotify-soft);
+  border: 1px solid rgba(30, 215, 96, 0.22);
+  min-width: 0;
+}
+
+.listening-card--compact {
+  gap: 10px;
+  padding: 8px 10px;
+}
+
+.listening-art {
+  border-radius: 8px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.listening-art--empty {
+  display: grid;
+  place-items: center;
+  background: rgba(30, 215, 96, 0.16);
+  color: var(--spotify);
+}
+
+.listening-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+
+.listening-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--spotify);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.listening-track {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listening-artist {
+  color: var(--muted);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listening-progress {
+  display: block;
+  height: 3px;
+  margin-top: 7px;
+  border-radius: 2px;
+  background: rgba(148, 163, 184, 0.2);
+  overflow: hidden;
+}
+
+.listening-progress i {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--spotify);
+  transition: width 1s linear;
+}
+
+/* Status menu */
+.user-panel-listening {
+  padding: 8px 10px 4px;
+}
+
+.profile-listening {
+  margin-top: 12px;
+}
+
+/* Settings → Connections */
+.spotify-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.spotify-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spotify-badge {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--spotify-soft);
+  color: var(--spotify);
+  flex: 0 0 auto;
+}
+
+.spotify-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.spotify-title h3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.spotify-title p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.spotify-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.spotify-state--on {
+  color: var(--spotify);
+  background: var(--spotify-soft);
+}
+
+.spotify-copy {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.spotify-idle {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--panel-3);
+}
+
+.spotify-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.spotify-doc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+.spotify-doc-link:hover {
+  text-decoration: underline;
+}
+
+.spotify-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--panel-3);
+  cursor: pointer;
+}
+
+.spotify-toggle input {
+  margin-top: 2px;
+  accent-color: var(--spotify);
+}
+
+.spotify-toggle span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.spotify-toggle strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.spotify-toggle em {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.spotify-notice {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(245, 181, 68, 0.1);
+  border: 1px solid rgba(245, 181, 68, 0.24);
+}
+
+.spotify-notice p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.spotify-fine-print {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--faint);
+}
+
+.spotify-error {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--danger);
+}
+
+.spotify-unlink {
+  color: var(--danger);
+}

@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src https: http: data:;"
+    />
+    <title>Cordia overlay</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: rgba(12, 15, 21, 0.94);
+        --line: rgba(255, 255, 255, 0.075);
+        --text: #eef2f9;
+        --muted: #8a94a6;
+        --live: #23a55a;
+        --danger: #ef6b76;
+        --accent: #6d5efc;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: transparent;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+        font-family: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        padding: 8px;
+        opacity: 1;
+        transition: opacity 120ms ease;
+      }
+      body.hidden {
+        opacity: 0;
+      }
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        background: var(--bg);
+        box-shadow:
+          0 20px 44px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.045);
+        padding: 11px 13px 10px;
+        color: var(--text);
+        transition: border-color 140ms ease;
+      }
+      body.unlocked .panel {
+        border-color: rgba(109, 94, 252, 0.55);
+        box-shadow:
+          0 20px 44px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(109, 94, 252, 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-bottom: 9px;
+        border-bottom: 1px solid var(--line);
+        -webkit-app-region: drag;
+      }
+      body:not(.unlocked) .head {
+        -webkit-app-region: no-drag;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--live);
+        box-shadow: 0 0 9px rgba(35, 165, 90, 0.75);
+        flex: none;
+      }
+      .channel {
+        font-size: 12.5px;
+        font-weight: 650;
+        letter-spacing: 0.005em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .state {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex: none;
+        color: var(--danger);
+      }
+      .state svg {
+        display: block;
+      }
+      .lock {
+        display: none;
+        color: var(--accent);
+      }
+      body.unlocked .lock {
+        display: block;
+      }
+      .list {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        padding-top: 6px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 4px 5px;
+        margin: 0 -5px;
+        border-radius: 8px;
+        transition: background 120ms ease;
+      }
+      .row.speaking {
+        background: rgba(35, 165, 90, 0.1);
+      }
+      .avatar {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        flex: none;
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: #fff;
+        background: #5b6474;
+        object-fit: cover;
+        box-shadow: 0 0 0 0 transparent;
+        transition:
+          box-shadow 110ms ease,
+          opacity 110ms ease;
+      }
+      .row.speaking .avatar {
+        box-shadow:
+          0 0 0 2px var(--live),
+          0 0 12px rgba(35, 165, 90, 0.45);
+      }
+      .row.muted .avatar {
+        opacity: 0.68;
+      }
+      .name {
+        font-size: 12.5px;
+        font-weight: 500;
+        letter-spacing: 0.005em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .row.me .name {
+        font-weight: 650;
+      }
+      .row.muted .name {
+        color: var(--muted);
+      }
+      .tail {
+        margin-left: auto;
+        flex: none;
+        display: flex;
+        align-items: center;
+        height: 12px;
+      }
+      .tail svg {
+        display: block;
+        color: rgba(239, 107, 118, 0.8);
+      }
+      .bars {
+        display: flex;
+        align-items: flex-end;
+        gap: 1.5px;
+        height: 11px;
+        opacity: 0;
+        transition: opacity 110ms ease;
+      }
+      .row.speaking .bars {
+        opacity: 1;
+      }
+      .row.muted .bars {
+        display: none;
+      }
+      .bars i {
+        width: 2px;
+        border-radius: 1px;
+        background: var(--live);
+        animation: bounce 760ms ease-in-out infinite;
+      }
+      .bars i:nth-child(1) {
+        height: 5px;
+        animation-delay: 0ms;
+      }
+      .bars i:nth-child(2) {
+        height: 11px;
+        animation-delay: 130ms;
+      }
+      .bars i:nth-child(3) {
+        height: 7px;
+        animation-delay: 260ms;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: scaleY(0.5);
+        }
+        50% {
+          transform: scaleY(1);
+        }
+      }
+      .chat {
+        display: none;
+        flex-direction: column;
+        gap: 3px;
+        padding-top: 8px;
+        margin-top: 8px;
+        border-top: 1px solid var(--line);
+      }
+      .chat.visible {
+        display: flex;
+      }
+      .line {
+        display: flex;
+        gap: 5px;
+        font-size: 11.5px;
+        line-height: 1.35;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .line .who {
+        font-weight: 650;
+        flex: none;
+        max-width: 45%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .line .what {
+        color: #c3ccdb;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .line.mine .what {
+        color: var(--text);
+      }
+      .controls {
+        display: none;
+        align-items: center;
+        gap: 6px;
+        padding-top: 9px;
+        margin-top: 8px;
+        border-top: 1px solid var(--line);
+      }
+      body.unlocked .controls {
+        display: flex;
+      }
+      .control {
+        -webkit-app-region: no-drag;
+        width: 30px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.035);
+        color: var(--text);
+        cursor: pointer;
+        padding: 0;
+      }
+      .control:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .control.off {
+        color: var(--danger);
+        border-color: rgba(239, 107, 118, 0.4);
+        background: rgba(239, 107, 118, 0.12);
+      }
+      .control.leave {
+        margin-left: auto;
+        color: var(--danger);
+      }
+      .composer {
+        display: none;
+        align-items: center;
+        gap: 6px;
+        padding-top: 7px;
+      }
+      body.unlocked .composer {
+        display: flex;
+      }
+      .composer input {
+        -webkit-app-region: no-drag;
+        flex: 1;
+        min-width: 0;
+        height: 28px;
+        padding: 0 9px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        font-size: 12px;
+        font-family: inherit;
+        outline: none;
+      }
+      .composer input:focus {
+        border-color: rgba(109, 94, 252, 0.6);
+      }
+      .composer input::placeholder {
+        color: #6f7a8c;
+      }
+      .hint {
+        display: none;
+        padding-top: 6px;
+        font-size: 10px;
+        color: #6f7a8c;
+        text-align: right;
+      }
+      body.unlocked .hint {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="hidden">
+    <div class="panel" id="panel">
+      <div class="head">
+        <span class="dot"></span>
+        <span id="channel" class="channel">Voice</span>
+        <span class="state">
+          <span id="self"></span>
+          <span class="lock" id="lock" title="Overlay unlocked">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </span>
+        </span>
+      </div>
+      <div id="list" class="list"></div>
+      <div id="chat" class="chat"></div>
+      <div class="controls">
+        <button class="control" id="mic" type="button" title="Mute"></button>
+        <button class="control" id="deafen" type="button" title="Deafen"></button>
+        <button class="control leave" id="leave" type="button" title="Leave call">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"></path><line x1="22" y1="2" x2="2" y2="22"></line></svg>
+        </button>
+      </div>
+      <div class="composer">
+        <input id="draft" type="text" maxlength="4000" placeholder="Message" autocomplete="off" spellcheck="false" />
+        <button class="control" id="send" type="button" title="Send">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+      <div class="hint">Ctrl+Shift+` locks the overlay</div>
+    </div>
+    <script>
+      const api = window.cordiaOverlay;
+      const list = document.getElementById('list');
+      const chat = document.getElementById('chat');
+      const channelLabel = document.getElementById('channel');
+      const selfState = document.getElementById('self');
+      const micButton = document.getElementById('mic');
+      const deafenButton = document.getElementById('deafen');
+      const leaveButton = document.getElementById('leave');
+      const sendButton = document.getElementById('send');
+      const composer = document.querySelector('.composer');
+      const draft = document.getElementById('draft');
+      const panel = document.getElementById('panel');
+      let lastSize = '';
+      let state = null;
+
+      const ICONS = {
+        mic: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>',
+        micOff:
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="2" x2="22" y2="22"></line><path d="M18.89 13.23A7.12 7.12 0 0 0 19 12v-2"></path><path d="M5 10v2a7 7 0 0 0 12 5"></path><path d="M15 9.34V5a3 3 0 0 0-5.68-1.33"></path><path d="M9 9v3a3 3 0 0 0 5.12 2.12"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>',
+        headphones:
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg>',
+        deafened:
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="2" x2="22" y2="22"></line><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 2.64-6.36"></path><path d="M18 8a9 9 0 0 1 3 7v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg>',
+        micSmall:
+          '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="2" x2="22" y2="22"></line><path d="M18.89 13.23A7.12 7.12 0 0 0 19 12v-2"></path><path d="M5 10v2a7 7 0 0 0 12 5"></path><path d="M15 9.34V5a3 3 0 0 0-5.68-1.33"></path><path d="M9 9v3a3 3 0 0 0 5.12 2.12"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>'
+      };
+
+      function row(participant) {
+        const element = document.createElement('div');
+        element.className = 'row';
+        if (participant.muted) element.classList.add('muted');
+        if (participant.speaking) element.classList.add('speaking');
+        if (participant.self) element.classList.add('me');
+
+        let avatar;
+        if (participant.avatarUrl) {
+          avatar = document.createElement('img');
+          avatar.className = 'avatar';
+          avatar.src = participant.avatarUrl;
+          avatar.alt = '';
+        } else {
+          avatar = document.createElement('span');
+          avatar.className = 'avatar';
+          avatar.style.background = participant.color || '#5b6474';
+          avatar.textContent = String(participant.name || '?').slice(0, 1).toUpperCase();
+        }
+        element.appendChild(avatar);
+
+        const name = document.createElement('span');
+        name.className = 'name';
+        name.textContent = participant.name || 'Someone';
+        element.appendChild(name);
+
+        const tail = document.createElement('span');
+        tail.className = 'tail';
+        tail.innerHTML =
+          '<span class="bars"><i></i><i></i><i></i></span>' +
+          (participant.muted ? ICONS.micSmall : '');
+        element.appendChild(tail);
+
+        return element;
+      }
+
+      function chatLine(message) {
+        const element = document.createElement('div');
+        element.className = message.mine ? 'line mine' : 'line';
+        const who = document.createElement('span');
+        who.className = 'who';
+        who.style.color = message.color || 'var(--muted)';
+        who.textContent = message.author || 'Someone';
+        const what = document.createElement('span');
+        what.className = 'what';
+        what.textContent = message.text || '';
+        element.append(who, what);
+        return element;
+      }
+
+      function render(next) {
+        state = next;
+        if (!state || !state.connected) {
+          document.body.classList.add('hidden');
+          return;
+        }
+        channelLabel.textContent = state.channel || 'Voice';
+        selfState.innerHTML = state.selfDeafened
+          ? ICONS.deafened
+          : state.selfMuted
+            ? ICONS.micSmall
+            : '';
+        list.replaceChildren(...(state.participants || []).map(row));
+
+        const messages = state.messages || [];
+        chat.classList.toggle('visible', !!state.showChat && messages.length > 0);
+        chat.replaceChildren(...messages.slice(-4).map(chatLine));
+
+        micButton.innerHTML = state.selfMuted ? ICONS.micOff : ICONS.mic;
+        micButton.classList.toggle('off', !!state.selfMuted);
+        micButton.title = state.selfMuted ? 'Unmute' : 'Mute';
+        deafenButton.innerHTML = state.selfDeafened ? ICONS.deafened : ICONS.headphones;
+        deafenButton.classList.toggle('off', !!state.selfDeafened);
+        deafenButton.title = state.selfDeafened ? 'Undeafen' : 'Deafen';
+
+        // No place to post on a voice channel or the friends list, so the box
+        // goes away rather than failing when it is used.
+        composer.style.display = state.canSend ? '' : 'none';
+
+        document.body.classList.remove('hidden');
+        requestAnimationFrame(reportSize);
+      }
+
+      function reportSize() {
+        const size = JSON.stringify({
+          width: Math.ceil(document.body.scrollWidth),
+          height: Math.ceil(document.body.scrollHeight)
+        });
+        if (size === lastSize) return;
+        lastSize = size;
+        api.resize(JSON.parse(size));
+      }
+
+      function send() {
+        const text = draft.value.trim();
+        if (!text) return;
+        api.command({ type: 'send', text });
+        draft.value = '';
+      }
+
+      micButton.addEventListener('click', () => api.command({ type: 'mute' }));
+      deafenButton.addEventListener('click', () => api.command({ type: 'deafen' }));
+      leaveButton.addEventListener('click', () => api.command({ type: 'leave' }));
+      sendButton.addEventListener('click', send);
+      draft.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          send();
+        }
+        if (event.key === 'Escape') draft.blur();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') api.command({ type: 'lock' });
+      });
+
+      api.onState(render);
+      api.onVisible((visible) => {
+        document.body.classList.toggle('hidden', !visible);
+      });
+      api.onMode((interactive) => {
+        document.body.classList.toggle('unlocked', !!interactive);
+        if (interactive) {
+          requestAnimationFrame(() => {
+            draft.focus();
+            reportSize();
+          });
+        } else {
+          draft.blur();
+        }
+      });
+    </script>
+  </body>
+</html>

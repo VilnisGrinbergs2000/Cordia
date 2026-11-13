@@ -1,0 +1,371 @@
+/* Support tab: the tip jar, the storage meter and the file list behind it.
+   There is no plan card because there is no plan - the only thing this tab
+   offers is a way to say thanks. */
+
+.support-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+}
+
+/* A QR code needs a quiet, light field to scan, so it sits on white even in the
+   dark theme. The padding is the quiet zone; do not remove it. */
+.support-qr {
+  padding: 12px;
+  border-radius: 18px;
+  background: #fff;
+  line-height: 0;
+  box-shadow: 0 12px 32px rgba(3, 6, 14, 0.38);
+}
+
+.support-qr img {
+  display: block;
+  width: 184px;
+  height: 184px;
+  border-radius: 8px;
+}
+
+.support-copy .settings-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.support-copy h3 {
+  margin: 7px 0 7px;
+  font-size: 15px;
+}
+
+.support-copy p {
+  max-width: 48ch;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.support-fine-print {
+  margin-top: 10px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--faint);
+}
+
+.storage-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.storage-meter-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.storage-meter-head .settings-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.storage-meter-figure {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.storage-meter-track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--panel-3);
+  overflow: hidden;
+}
+
+.storage-meter-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.3s ease;
+}
+
+.storage-meter-warn .storage-meter-fill {
+  background: linear-gradient(90deg, var(--amber), #f59e0b);
+}
+
+.storage-meter-warn .storage-meter-figure {
+  color: var(--amber);
+}
+
+.storage-meter-danger .storage-meter-fill {
+  background: linear-gradient(90deg, var(--danger), #ef4444);
+}
+
+.storage-meter-danger .storage-meter-figure {
+  color: var(--danger);
+}
+
+.storage-meter-note {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+/* The composer's size warning. It is a notice, not an upsell: there is nothing
+   to buy, so it explains the ceiling and gets out of the way. */
+.composer-upsell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 4px 8px;
+  padding: 11px 12px;
+  border: 1px solid rgba(124, 107, 255, 0.32);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(124, 107, 255, 0.14), rgba(91, 140, 255, 0.08));
+}
+
+.composer-upsell-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.composer-upsell-copy strong {
+  display: block;
+  font-size: 12.5px;
+}
+
+.composer-upsell-copy p {
+  margin-top: 2px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.composer-upsell-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Storage manager: the list behind the quota meter. */
+.storage-manager {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.storage-manager-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.storage-manager-head h3 {
+  margin: 0 0 3px;
+  font-size: 13px;
+}
+
+.storage-manager-head p {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.storage-manager-head .btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.storage-empty {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 12px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  color: var(--faint);
+  font-size: 12px;
+}
+
+.storage-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.storage-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px;
+  border-radius: 9px;
+  font-size: 12px;
+}
+
+.storage-row:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.storage-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 11.5px;
+}
+
+.storage-meta {
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.storage-tag {
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.storage-tag.is-free {
+  border-color: rgba(53, 226, 192, 0.32);
+  background: rgba(53, 226, 192, 0.1);
+  color: var(--teal);
+}
+
+@media (max-width: 720px) {
+  .composer-upsell {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .composer-upsell-actions {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 640px) {
+  .support-card {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .support-qr img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 620px) {
+  .storage-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 4px;
+  }
+
+  .storage-meta,
+  .storage-tag {
+    justify-self: start;
+  }
+}
+
+/* The launch-time tip jar. Codi sits beside the copy so the card reads as a
+   note from the mascot rather than a checkout page. */
+.support-prompt-body {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+}
+
+.support-prompt-codi {
+  width: 96px;
+  height: auto;
+  filter: drop-shadow(0 14px 26px rgba(90, 70, 220, 0.35));
+  /* The same idle bob the splash screen gives Codi, so the mascot moves the
+     same way in both places. The global prefers-reduced-motion rule in
+     responsive.css already flattens it for anyone who asks for stillness. */
+  animation: floaty 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.support-prompt-copy strong {
+  display: block;
+  font-size: 14px;
+}
+
+.support-prompt-copy p {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* 92px looked tidy and could not be scanned. This code is 81 modules across,
+   so 92px put it at 1.1 device pixels per module; 300px is 3.7 and reads from
+   a phone held a hand's width away. The label sits under the code so the tile
+   is only as wide as what it holds. */
+.support-prompt-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 18px auto 0;
+}
+
+/* The white field is the QR's quiet zone; the source carries about five
+   modules of it already, and the padding keeps the tile from clipping it. */
+.support-prompt-qr img {
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  padding: 8px;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.support-prompt-qr span {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.support-prompt-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (max-width: 560px) {
+  .support-prompt-body {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .support-prompt-qr img {
+    width: 260px;
+    height: 260px;
+  }
+}

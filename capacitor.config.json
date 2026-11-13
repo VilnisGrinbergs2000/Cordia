@@ -1,0 +1,15 @@
+{
+  "appId": "app.cordia.client",
+  "appName": "Cordia",
+  "webDir": "client/dist",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": false
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_cordia",
+      "iconColor": "#6d5efc"
+    }
+  }
+}

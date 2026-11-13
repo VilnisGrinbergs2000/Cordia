@@ -1,0 +1,88 @@
+name: Bug report
+description: Something does not work as documented.
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please do not include passwords, session tokens, `.env` contents, private messages, or other people's personal data.
+
+        If this is a security vulnerability, **stop** and follow [SECURITY.md](https://github.com/VilnisGrinbergs2000/Cordia/blob/main/SECURITY.md) instead of opening a public issue.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you see instead?
+      placeholder: I expected the message to send, but the composer stayed disabled and the console showed...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The smallest sequence that reliably shows the problem.
+      placeholder: |
+        1. Sign in as a regular member
+        2. Open a channel where the member may not send messages
+        3. ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: The release tag, or the output of `git rev-parse --short HEAD`.
+      placeholder: v1.0.0 or 1a2b3c4
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where does it happen?
+      options:
+        - Web app (browser)
+        - Desktop app (Electron)
+        - Android
+        - iOS
+        - API / bot
+        - Server startup or migrations
+        - Marketing page
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser and OS for client bugs; Node, PostgreSQL, and OS for server bugs.
+      placeholder: Firefox 141 on macOS 15; Node 24.4, PostgreSQL 17, Ubuntu 24.04
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or screenshots
+      description: Server log lines, browser console errors, or a screenshot. Redact tokens, cookies, email addresses, and message content.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
+        - label: I removed secrets, tokens, and personal data from this report.
+          required: true
+        - label: This is not a security vulnerability (those go through SECURITY.md).
+          required: true

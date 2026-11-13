@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and syntax check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      # The CI job does not run or package the desktop app, so skip the large
+      # Electron binary download during the root install.
+      ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            server/package-lock.json
+            client/package-lock.json
+
+      - name: Install root dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install server dependencies
+        run: npm ci --prefix server --no-audit --no-fund
+
+      - name: Install client dependencies
+        run: npm ci --prefix client --no-audit --no-fund
+
+      - name: Syntax-check the server
+        run: |
+          set -euo pipefail
+          find server/src -name '*.js' -print0 | xargs -0 -n1 node --check
+
+      - name: Build the web client and check bundle budgets
+        run: npm --prefix client run build:check
+
+      - name: Check documentation links
+        run: |
+          set -euo pipefail
+          # Fail when a relative Markdown link points at a missing local file.
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const files = ['README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'THIRD_PARTY_NOTICES.md'];
+          for (const dir of ['docs']) {
+            for (const name of fs.readdirSync(dir)) {
+              if (name.endsWith('.md')) files.push(path.join(dir, name));
+            }
+          }
+          const missing = [];
+          for (const file of files) {
+            const text = fs.readFileSync(file, 'utf8');
+            for (const match of text.matchAll(/\]\(([^)]+)\)/g)) {
+              const target = match[1].split('#')[0];
+              if (!target || /^(https?:|mailto:)/.test(target)) continue;
+              const resolved = path.resolve(path.dirname(file), target);
+              if (!fs.existsSync(resolved)) missing.push(file + ' -> ' + match[1]);
+            }
+          }
+          if (missing.length) {
+            console.error('Broken local links:\n' + missing.join('\n'));
+            process.exit(1);
+          }
+          console.log('All local documentation links resolve.');
+          NODE

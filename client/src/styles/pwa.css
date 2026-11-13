@@ -1,0 +1,104 @@
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 260;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: calc(7px + env(safe-area-inset-top, 0px)) 14px 7px;
+  border-bottom: 1px solid rgba(245, 181, 68, 0.24);
+  background: rgba(46, 33, 12, 0.94);
+  color: #fcd34d;
+  font-size: 12px;
+  line-height: 1.3;
+  backdrop-filter: blur(14px);
+}
+
+.offline-banner svg {
+  flex-shrink: 0;
+}
+
+.pwa-prompt {
+  position: fixed;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 255;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(540px, calc(100vw - 24px));
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: rgba(13, 21, 38, 0.96);
+  box-shadow: var(--shadow-glass);
+  transform: translateX(-50%);
+  backdrop-filter: blur(20px);
+}
+
+.pwa-prompt-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: var(--accent-soft);
+  color: #c7bcff;
+}
+
+.pwa-prompt-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.pwa-prompt-copy strong {
+  font-size: 13px;
+}
+
+.pwa-prompt-copy span {
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.pwa-steps {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pwa-steps li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.pwa-steps svg {
+  display: inline;
+  margin: 0 2px;
+  vertical-align: -2px;
+  color: var(--text);
+}
+
+.pwa-steps strong {
+  color: var(--text);
+}
+
+@media (max-width: 620px) {
+  .pwa-prompt {
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .pwa-prompt-copy span {
+    display: none;
+  }
+}

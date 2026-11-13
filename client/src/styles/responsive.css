@@ -1,0 +1,759 @@
+@media (max-width: 1060px) {
+  .members {
+    display: none;
+  }
+
+  .video-tile {
+    width: 200px;
+  }
+
+  .video-dock.multi .video-tile {
+    width: 180px;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-side {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: center;
+    padding: 48px 20px;
+    gap: 30px;
+  }
+
+  .auth-story {
+    display: none;
+  }
+
+  .auth-panel {
+    width: 100%;
+  }
+
+  .auth-orbit {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .voice-dock {
+    left: calc(var(--rail-w) + 8px);
+    width: calc(var(--sidebar-w) - 16px);
+  }
+
+
+  .video-dock {
+    right: 10px;
+    bottom: 120px;
+    max-width: calc(100vw - 100px);
+  }
+
+  .video-tile,
+  .video-dock.multi .video-tile {
+    width: 160px;
+  }
+
+  .friends-header {
+    align-items: flex-start;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 700px) {
+  :root {
+    --rail-w: 62px;
+    --sidebar-w: 250px;
+  }
+
+  .server-rail {
+    gap: 7px;
+    padding: 10px 0;
+  }
+
+  .rail-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+    font-size: 13px;
+  }
+
+  .rail-btn.active {
+    border-radius: 11px;
+  }
+
+  .rail-btn.active::before {
+    left: -11px;
+    height: 18px;
+  }
+
+  .rail-btn[data-tooltip]::after {
+    display: none;
+  }
+
+  .rail-unread {
+    min-width: 16px;
+    height: 16px;
+    font-size: 8.5px;
+  }
+
+  .sidebar-header {
+    min-height: 56px;
+    padding: 0 8px 0 12px;
+  }
+
+  .chat-header {
+    min-height: 56px;
+    padding: 0 12px;
+  }
+
+  /* Small screens: keep every header action reachable instead of hiding all
+     but the last one (DMs lost search, call and the E2EE buttons that way).
+     The row shrinks and scrolls sideways when it cannot fit. */
+  .chat-header-actions {
+    gap: 4px;
+    min-width: 0;
+    flex: 0 1 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .chat-header-actions > * {
+    flex-shrink: 0;
+  }
+
+  .messages {
+    padding: 14px 6px 4px;
+  }
+
+  .message {
+    padding: 3px 8px;
+    gap: 9px;
+  }
+
+  .message-avatar,
+  .message-gutter {
+    width: 34px;
+  }
+
+  .message-avatar .avatar {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .message-toolbar {
+    right: 6px;
+    top: -12px;
+  }
+
+  .composer {
+    padding: 4px 10px 8px;
+  }
+
+  .composer-box {
+    border-radius: 14px;
+  }
+
+  .composer-hint {
+    display: none;
+  }
+
+  .typing-line {
+    padding: 0 16px 2px;
+  }
+
+  .voice-dock {
+    left: calc(var(--rail-w) + 6px);
+    width: calc(var(--sidebar-w) - 12px);
+    bottom: 66px;
+    padding: 8px;
+  }
+
+  .voice-dock-people {
+    display: none;
+  }
+
+  .voice-stage-people {
+    padding: 12px;
+  }
+
+  .participant-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+
+  .home-view {
+    padding: 18px 12px 30px;
+  }
+
+  .friends-header {
+    align-items: center;
+    padding-bottom: 12px;
+  }
+
+  .friends-header-copy h1 {
+    font-size: 24px;
+  }
+
+  .home-side {
+    grid-template-columns: 1fr;
+  }
+
+  .friends-toolbar {
+    flex-direction: column;
+    padding: 10px 12px 2px;
+  }
+
+  .friends-list {
+    padding: 6px 10px 12px;
+  }
+
+  .friend-row {
+    padding: 8px;
+  }
+
+  .friend-actions .btn span {
+    display: none;
+  }
+
+  .add-friend-form {
+    flex-direction: column;
+  }
+
+  .modal-backdrop {
+    padding: 12px 12px calc(12px + env(safe-area-inset-bottom, 0px));
+    align-items: flex-end;
+  }
+
+  .modal {
+    max-height: calc(92dvh - env(safe-area-inset-bottom, 0px));
+    border-radius: 20px;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .settings-colors {
+    grid-template-columns: 1fr;
+  }
+
+  .channel-type-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .type-pill,
+  .status-pill {
+    font-size: 9px;
+  }
+
+  .toast {
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    max-width: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .server-rail {
+    order: 2;
+    width: 100%;
+    height: calc(58px + env(safe-area-inset-bottom, 0px));
+    flex-direction: row;
+    padding: 6px 10px calc(6px + env(safe-area-inset-bottom, 0px));
+    border-right: 0;
+    border-top: 1px solid var(--line);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 90;
+  }
+
+  .rail-servers {
+    flex-direction: row;
+    gap: 7px;
+    padding: 0;
+    width: auto;
+    flex: 0 1 auto;
+    overflow: visible;
+  }
+
+  .rail-divider {
+    display: none;
+  }
+
+  .rail-spacer {
+    display: none;
+  }
+
+  .rail-servers::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .rail-btn[data-tooltip]::after {
+    display: none;
+  }
+
+  .rail-btn.active::before {
+    left: 50%;
+    top: -7px;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .rail-btn {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+  }
+
+  .rail-unread {
+    right: -2px;
+    bottom: -2px;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: none;
+    flex: 0 1 auto;
+    max-height: 42dvh;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .main-pane {
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  .sidebar.user-panel {
+    display: none;
+  }
+
+  .user-panel {
+    display: none;
+  }
+
+  .sidebar-header-actions .mobile-user-settings {
+    display: grid;
+  }
+
+  .main-pane {
+    padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .stage-empty {
+    padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .voice-dock {
+    left: 8px;
+    right: 8px;
+    width: auto;
+    bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .voice-dock .voice-controls {
+    justify-content: center;
+    gap: 8px;
+  }
+
+
+  .video-dock {
+    left: 8px;
+    right: 8px;
+    bottom: calc(62px + env(safe-area-inset-bottom, 0px));
+    max-width: none;
+    justify-content: center;
+  }
+
+  .video-tile,
+  .video-dock.multi .video-tile {
+    width: 140px;
+  }
+
+  .chat-header {
+    padding: 0 10px;
+  }
+
+  .message-toolbar {
+    position: static;
+    width: fit-content;
+    margin-left: auto;
+    opacity: 1;
+    pointer-events: auto;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 2px;
+  }
+
+  .message:hover .message-toolbar {
+    opacity: 1;
+  }
+
+  .profile-cover {
+    height: 148px;
+  }
+
+  .profile-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .profile-cover-meta {
+    top: 12px;
+    left: 14px;
+  }
+
+  .profile-body {
+    padding: 0 18px 24px;
+  }
+
+  .profile-identity {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: -48px;
+  }
+
+  .profile-actions {
+    justify-content: flex-start;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  .profile-names {
+    padding-top: 10px;
+  }
+
+  .profile-names h2 {
+    font-size: 26px;
+  }
+
+  .profile-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .profile-fact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .settings-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settings-footer-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+}
+
+@media (max-width: 460px) {
+  .auth-page {
+    padding: 26px 12px;
+  }
+
+  .auth-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .modal-backdrop {
+    padding: 0;
+  }
+
+  .modal {
+    width: 100%;
+    max-height: 100dvh;
+    height: 100dvh;
+    border-radius: 0;
+  }
+
+  .modal-body {
+    padding: 16px 18px 22px;
+  }
+
+  .modal-head {
+    padding: 18px 18px 0;
+  }
+
+  .modal-footer {
+    padding: 12px 18px;
+  }
+
+  .friends-header {
+    gap: 10px;
+  }
+
+  .friends-header-copy h1 {
+    font-size: 22px;
+  }
+
+  .friends-header .btn {
+    flex-shrink: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .friends-tab {
+    padding: 6px 8px;
+    font-size: 11.5px;
+  }
+
+  .friend-actions .btn {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .chat-title-text small {
+    display: none;
+  }
+
+  .voice-controls {
+    flex-wrap: wrap;
+  }
+
+  .video-tile,
+  .video-dock.multi .video-tile {
+    width: 120px;
+  }
+}
+
+@media (min-width: 821px) {
+  /* The floating dock carries the call controls on desktop, so the stage bar
+     would duplicate every button (two hangups on screen at once). */
+  .voice-callbar {
+    display: none;
+  }
+
+  .voice-callbar .soundboard-trigger {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  /* Mobile keeps the in-page bar pinned above the composer and hides the
+     floating dock on the live voice page, so there is exactly one set of
+     controls and it always stays on screen. */
+  .app-shell.mobile-chat.voice-live .voice-dock {
+    display: none;
+  }
+
+  .voice-room-wrap {
+    padding: 14px;
+  }
+
+  .voice-room-grid {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+  }
+
+  .voice-person {
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 620px) {
+  .voice-channel-header {
+    min-height: 58px;
+    padding: 0 12px;
+  }
+
+  .voice-join-btn {
+    padding: 0 10px;
+  }
+
+  .voice-room-wrap {
+    padding: 10px;
+    /* keep the last row clear of the floating voice dock */
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .voice-room-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .voice-room-grid.solo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .voice-person {
+    min-height: 120px;
+    border-radius: 8px;
+  }
+
+  .voice-person-name {
+    left: 8px;
+    bottom: 8px;
+    max-width: calc(100% - 58px);
+    padding: 4px 7px;
+    font-size: 11px;
+  }
+
+  .voice-person-flags {
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .voice-person-flag {
+    width: 22px;
+    height: 22px;
+  }
+
+  .voice-callbar {
+    padding: 8px 10px;
+  }
+
+  .voice-callbar-inner {
+    gap: 8px;
+  }
+
+  .voice-callbar-status {
+    gap: 0;
+    font-size: 0;
+  }
+
+  .voice-callbar-status svg {
+    display: none;
+  }
+
+  .voice-callbar .voice-ctrl {
+    width: 38px;
+    height: 38px;
+  }
+
+  .voice-callbar-tools .screen-share-settings {
+    width: 220px;
+  }
+}
+
+@media (max-width: 720px) {
+  .event-form-grid,
+  .automod-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .event-date {
+    width: 52px;
+    min-height: 60px;
+  }
+
+  .event-date strong {
+    font-size: 19px;
+  }
+
+  .event-creator {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .poll-card {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .poll-card-foot {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Mobile: one pane at a time ---- */
+.chat-back {
+  display: none;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .app-shell .sidebar {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    flex: 1 1 auto;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .app-shell.mobile-list .main-pane {
+    display: none;
+  }
+
+  .app-shell.mobile-chat .sidebar,
+  .app-shell.mobile-chat .server-rail {
+    display: none;
+  }
+
+  .app-shell.mobile-chat .main-pane {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .chat-back {
+    display: grid;
+  }
+
+  .friends-header .chat-back {
+    margin-right: 10px;
+  }
+
+  /* Touch has no hover, so actions move to the long-press menu instead of
+     sitting on every row. */
+  .message-toolbar {
+    display: none;
+  }
+}
+

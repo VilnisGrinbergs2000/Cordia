@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090c11" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content="Cordia" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <title>Cordia — Community chat, voice, and encrypted DMs</title>
+    <meta name="description" content="Cordia is a calmer place to talk: servers, direct messages, voice and video, with end-to-end encrypted DMs. Free on the web, Windows, and Linux." />
+    <link rel="canonical" href="https://cordia.ext.io/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cordia" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://cordia.ext.io/" />
+    <meta property="og:title" content="Cordia — Community chat, voice, and encrypted DMs" />
+    <meta property="og:description" content="Cordia is a calmer place to talk: servers, direct messages, voice and video, with end-to-end encrypted DMs. Free on the web, Windows, and Linux." />
+    <meta property="og:image" content="https://cordia.ext.io/assets/og-card.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Cordia — a calmer place to talk, with Codi the mascot." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cordia — Community chat, voice, and encrypted DMs" />
+    <meta name="twitter:description" content="Cordia is a calmer place to talk: servers, direct messages, voice and video, with end-to-end encrypted DMs. Free on the web, Windows, and Linux." />
+    <meta name="twitter:image" content="https://cordia.ext.io/assets/og-card.png" />
+    <meta name="twitter:image:alt" content="Cordia — a calmer place to talk, with Codi the mascot." />
+
+    <link rel="icon" type="image/png" href="/assets/codi-mark.png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://cordia.ext.io/#organization",
+            "name": "Cordia",
+            "url": "https://cordia.ext.io/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cordia.ext.io/assets/codi-mark.png",
+              "width": 512,
+              "height": 512
+            },
+            "email": "admin@cordia.ext.io",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "LV"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://cordia.ext.io/#website",
+            "url": "https://cordia.ext.io/",
+            "name": "Cordia",
+            "description": "Community chat with voice, video and end-to-end encrypted direct messages.",
+            "publisher": {
+              "@id": "https://cordia.ext.io/#organization"
+            },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://cordia.ext.io/#app",
+            "name": "Cordia",
+            "applicationCategory": "CommunicationApplication",
+            "applicationSubCategory": "Chat",
+            "operatingSystem": "Windows 10, Windows 11, Linux, Web browser, Android, iOS",
+            "url": "https://cordia.ext.io/",
+            "image": "https://cordia.ext.io/assets/og-card.png",
+            "screenshot": "https://cordia.ext.io/assets/og-card.png",
+            "description": "Servers, channels, threads, forums, voice and video, with end-to-end encrypted direct messages.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "publisher": {
+              "@id": "https://cordia.ext.io/#organization"
+            },
+            "featureList": [
+              "End-to-end encrypted direct messages",
+              "Voice and video channels",
+              "Threads, forums and discovery",
+              "Windows, Linux and web apps"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://cordia.ext.io/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Cordia free to use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cordia is free to download and use. Create an account and join a community on Cordia."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are my messages private?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Direct messages are end-to-end encrypted with X3DH and the Double Ratchet. Server channels are visible to members with access to that channel, so share accordingly."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What do I need to run Cordia?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The desktop app runs on Windows 10/11 or a modern x64 Linux desktop. The web app needs a current browser and a Cordia account."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I use it on my phone?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes - open Cordia in your phone browser and add it to your home screen as a web app. Native Android and iOS builds are in the works."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Cordia work offline?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The app shell can load without a connection, but messages, calls, and live updates need the server. Background push alerts are available in the installed web app."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m5 12 4 4L19 6" />
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+      </symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </symbol>
+      <symbol id="icon-mic" viewBox="0 0 24 24">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6 6l1.24-1.24a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"
+        />
+      </symbol>
+      <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="m12 3-1.9 5.1L5 10l5.1 1.9L12 17l1.9-5.1L19 10l-5.1-1.9z" />
+        <path d="M5 3v4M3 5h4M19 17v4M17 19h4" />
+      </symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <path
+          d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+        />
+      </symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </symbol>
+      <symbol id="icon-bell" viewBox="0 0 24 24">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+      </symbol>
+      <symbol id="icon-monitor" viewBox="0 0 24 24">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <path d="m7 10 5 5 5-5M12 15V3" />
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <path d="M9 22V12h6v10" />
+      </symbol>
+      <symbol id="icon-compass" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <path d="m16 8-2.5 5.5L8 16l2.5-5.5z" />
+      </symbol>
+      <symbol id="icon-hash" viewBox="0 0 24 24">
+        <path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18" />
+      </symbol>
+      <symbol id="icon-volume" viewBox="0 0 24 24">
+        <path d="M11 5 6 9H2v6h4l5 4z" />
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14" />
+      </symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </symbol>
+      <symbol id="icon-sliders" viewBox="0 0 24 24">
+        <path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />
+      </symbol>
+      <symbol id="icon-smile" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" />
+      </symbol>
+      <symbol id="icon-paperclip" viewBox="0 0 24 24">
+        <path
+          d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+        />
+      </symbol>
+      <symbol id="icon-send" viewBox="0 0 24 24">
+        <path d="m22 2-7 20-4-9-9-4z" />
+        <path d="M22 2 11 13" />
+      </symbol>
+      <symbol id="icon-key" viewBox="0 0 24 24">
+        <circle cx="7.5" cy="15.5" r="5.5" />
+        <path d="m21 2-9.6 9.6M15 7l3 3" />
+      </symbol>
+      <symbol id="icon-server" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="8" rx="2" />
+        <rect x="2" y="14" width="20" height="8" rx="2" />
+        <path d="M6 6h.01M6 18h.01" />
+      </symbol>
+      <symbol id="icon-badge" viewBox="0 0 24 24">
+        <path d="m9 12 2 2 4-4" />
+        <path d="M12 2 9.5 4.5 6 4l-.5 3.5L2 9l2 3-2 3 3.5 1.5L6 20l3.5-.5L12 22l2.5-2.5L18 20l.5-3.5L22 15l-2-3 2-3-3.5-1.5L18 4l-3.5.5z" />
+      </symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24">
+        <path d="m6 9 6 6 6-6" />
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M12 17v5M5 10a7 7 0 0 1 14 0c0 3-2 5-4 7H9c-2-2-4-4-4-7z" />
+      </symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24">
+        <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M19.07 4.93l-2.83 2.83M7.76 16.24l-2.83 2.83" />
+      </symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24">
+        <path d="M15 8.5 21 5v14l-6-3.5" />
+        <rect x="3" y="6" width="12" height="12" rx="2" />
+      </symbol>
+      <symbol id="icon-headphones" viewBox="0 0 24 24">
+        <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+        <path d="M4 14h3v6H5a1 1 0 0 1-1-1zM20 14h-3v6h2a1 1 0 0 0 1-1z" />
+      </symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24">
+        <path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4" />
+      </symbol>
+      <symbol id="icon-check-circle" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="m8 12 2.5 2.5L16 9" />
+      </symbol>
+      <symbol id="icon-alert" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v6M12 17h.01" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </symbol>
+      <symbol id="icon-at" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.9 7.9" />
+      </symbol>
+    </svg>
+
+    <div class="page-glow page-glow--violet" aria-hidden="true"></div>
+    <div class="page-glow page-glow--mint" aria-hidden="true"></div>
+    <div class="page-glow page-glow--rose" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Cordia home">
+          <img class="brand-mark" src="assets/codi-mark.png" alt="" width="36" height="36" />
+          <span class="brand-word">cordia</span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#tour">Tour</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#download">Download</a>
+          <a href="#support">Support</a>
+          <a href="#faq">FAQ</a>
+          <a href="/status">Status</a>
+          <a class="js-app-link" href="/app">Open Cordia</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="btn btn-ghost btn-sm js-app-link" href="/app">Sign in</a>
+          <a class="btn btn-primary btn-sm" href="#download">
+            <svg class="icon" aria-hidden="true"><use href="#icon-download"></use></svg>
+            Get Cordia
+          </a>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="site-nav"
+            aria-expanded="false"
+          >
+            <svg class="icon menu-icon" aria-hidden="true"><use href="#icon-menu"></use></svg>
+            <svg class="icon close-icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-stars" aria-hidden="true">
+          <i style="--x: 6%; --y: 22%; --d: 5.2s; --delay: -1s"></i>
+          <i style="--x: 14%; --y: 66%; --d: 6.4s; --delay: -3s"></i>
+          <i style="--x: 24%; --y: 12%; --d: 4.8s; --delay: -2s"></i>
+          <i style="--x: 38%; --y: 80%; --d: 7.1s; --delay: -4s"></i>
+          <i style="--x: 46%; --y: 30%; --d: 5.7s; --delay: -0.4s"></i>
+          <i style="--x: 58%; --y: 72%; --d: 6.8s; --delay: -2.4s"></i>
+          <i style="--x: 68%; --y: 16%; --d: 4.6s; --delay: -3.6s"></i>
+          <i style="--x: 78%; --y: 54%; --d: 7.4s; --delay: -1.8s"></i>
+          <i style="--x: 86%; --y: 28%; --d: 5.4s; --delay: -4.8s"></i>
+          <i style="--x: 92%; --y: 74%; --d: 6.2s; --delay: -2.8s"></i>
+          <i style="--x: 32%; --y: 48%; --d: 8s; --delay: -5.2s"></i>
+          <i style="--x: 74%; --y: 88%; --d: 5.9s; --delay: -0.8s"></i>
+        </div>
+
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="status-dot"></span> Your people. Your place.</p>
+          <h1>A calmer place<br /><span>to talk.</span></h1>
+          <p class="lede">
+            Cordia brings your servers, direct messages, calls, and community into one thoughtful
+            space — without the noise.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#download">
+              Download Cordia
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#features">Explore features</a>
+          </div>
+          <div class="hero-highlights" aria-label="Cordia highlights">
+            <span class="hero-highlight">
+              <span class="hero-highlight-icon hero-highlight-icon--mint">
+                <svg class="icon" aria-hidden="true"><use href="#icon-mic"></use></svg>
+              </span>
+              <span><strong>Voice rooms</strong><small>Drop in and talk</small></span>
+            </span>
+            <span class="hero-highlight">
+              <span class="hero-highlight-icon hero-highlight-icon--violet">
+                <svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg>
+              </span>
+              <span><strong>E2EE DMs</strong><small>Just between you</small></span>
+            </span>
+            <span class="hero-highlight">
+              <span class="hero-highlight-icon hero-highlight-icon--blue">
+                <svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg>
+              </span>
+              <span><strong>Web + desktop</strong><small>Pick your place</small></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Preview of the Cordia app">
+          <div class="visual-orbit visual-orbit--one" aria-hidden="true"></div>
+          <div class="visual-orbit visual-orbit--two" aria-hidden="true"></div>
+
+          <div class="app-window">
+            <div class="window-bar">
+              <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="window-title">Cordia — Aurora Lab</span>
+              <span class="window-search">
+                <svg class="icon" aria-hidden="true"><use href="#icon-search"></use></svg>
+              </span>
+            </div>
+
+            <div class="app-layout">
+              <nav class="app-rail" aria-label="Workspace">
+                <span class="rail-logo"><img src="assets/codi-mark.png" alt="" /></span>
+                <span class="rail-icon is-active"><svg class="icon" aria-hidden="true"><use href="#icon-home"></use></svg></span>
+                <span class="rail-icon"><svg class="icon" aria-hidden="true"><use href="#icon-message"></use></svg></span>
+                <span class="rail-icon"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></span>
+                <span class="rail-divider"></span>
+                <span class="rail-server rail-server--mint">A</span>
+                <span class="rail-server rail-server--rose">J</span>
+                <span class="rail-server rail-server--amber">K</span>
+                <span class="rail-add"><svg class="icon" aria-hidden="true"><use href="#icon-plus"></use></svg></span>
+                <span class="rail-spacer"></span>
+                <span class="rail-avatar">A</span>
+              </nav>
+
+              <aside class="app-sidebar">
+                <div class="server-head">
+                  <span class="server-badge">A</span>
+                  <span class="server-name"><strong>Aurora Lab</strong><small>12 members</small></span>
+                  <svg class="icon server-chevron" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+                </div>
+
+                <div class="sidebar-label">Text channels</div>
+                <div class="channel-row is-active">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-hash"></use></svg>
+                  <span>general</span>
+                  <span class="channel-badge">3</span>
+                </div>
+                <div class="channel-row">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-hash"></use></svg>
+                  <span>design-lab</span>
+                </div>
+                <div class="channel-row">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-hash"></use></svg>
+                  <span>late-night</span>
+                </div>
+
+                <div class="sidebar-label sidebar-label--voice">Voice</div>
+                <div class="channel-row">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-volume"></use></svg>
+                  <span>Lounge</span>
+                  <span class="live-dot"></span>
+                </div>
+
+                <div class="voice-card">
+                  <div class="voice-avatars" aria-hidden="true">
+                    <span class="mini-avatar mini-avatar--violet">A</span>
+                    <span class="mini-avatar mini-avatar--mint">K</span>
+                    <span class="mini-avatar mini-avatar--rose">J</span>
+                  </div>
+                  <div class="voice-copy"><strong>Lounge</strong><small>3 friends talking</small></div>
+                  <span class="voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                </div>
+              </aside>
+
+              <section class="app-chat" aria-label="Chat preview">
+                <header class="chat-head">
+                  <div class="chat-head-title">
+                    <span class="chat-hash">#</span>
+                    <div><strong>general</strong><small>Good vibes, big ideas.</small></div>
+                  </div>
+                  <div class="chat-head-actions" aria-hidden="true">
+                    <svg class="icon"><use href="#icon-bell"></use></svg>
+                    <svg class="icon"><use href="#icon-pin"></use></svg>
+                    <svg class="icon"><use href="#icon-users"></use></svg>
+                    <svg class="icon"><use href="#icon-search"></use></svg>
+                  </div>
+                </header>
+
+                <div class="chat-messages">
+                  <div class="chat-message">
+                    <span class="chat-avatar chat-avatar--violet">A</span>
+                    <div class="chat-message-body">
+                      <div class="chat-meta"><strong>Aria</strong><time>10:42</time></div>
+                      <p>Morning! The new voice room is live. Who’s joining?</p>
+                    </div>
+                  </div>
+                  <div class="chat-message">
+                    <span class="chat-avatar chat-avatar--mint">K</span>
+                    <div class="chat-message-body">
+                      <div class="chat-meta"><strong>Kai</strong><time>10:43</time></div>
+                      <p>Already there. Bringing coffee ☕</p>
+                      <div class="chat-reaction">☕ 4</div>
+                    </div>
+                  </div>
+                  <div class="chat-message">
+                    <span class="chat-avatar chat-avatar--rose">J</span>
+                    <div class="chat-message-body">
+                      <div class="chat-meta"><strong>Juniper</strong><time>10:44</time></div>
+                      <p>Screen share in five. I found the cutest Codi sticker.</p>
+                    </div>
+                  </div>
+                  <div class="chat-message chat-message--codi">
+                    <span class="chat-avatar chat-avatar--codi"><img src="assets/codi-mascot.png" alt="" /></span>
+                    <div class="chat-message-body">
+                      <div class="chat-meta"><strong>Codi</strong><span class="bot-tag">BOT</span><time>10:45</time></div>
+                      <p>Welcome to Aurora Lab. Be kind, stay curious.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="chat-composer">
+                  <span class="composer-plus" aria-hidden="true"><svg class="icon"><use href="#icon-plus"></use></svg></span>
+                  <span class="composer-placeholder">Message #general</span>
+                  <span class="composer-actions" aria-hidden="true">
+                    <svg class="icon"><use href="#icon-smile"></use></svg>
+                    <svg class="icon"><use href="#icon-paperclip"></use></svg>
+                    <svg class="icon composer-send"><use href="#icon-send"></use></svg>
+                  </span>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="hero-codi">
+            <div class="codi-speech">
+              <span>Codi</span>
+              <p>Welcome in. I saved you a seat.</p>
+            </div>
+            <img class="hero-mascot" src="assets/codi-mascot.png" alt="Codi, the Cordia mascot" />
+          </div>
+
+          <div class="float-card float-card--secure">
+            <span class="float-icon float-icon--mint"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></span>
+            <span class="float-copy"><strong>End-to-end encrypted</strong><small>Only you and Aria can read this.</small></span>
+          </div>
+
+          <div class="float-card float-card--voice">
+            <span class="float-icon float-icon--violet"><svg class="icon" aria-hidden="true"><use href="#icon-mic"></use></svg></span>
+            <span class="float-copy"><strong>Lounge</strong><small>3 friends talking</small></span>
+            <span class="float-live"><i></i> Live</span>
+          </div>
+        </div>
+
+        <a class="hero-scroll" href="#tour">
+          <span>Take the tour</span>
+          <span class="hero-scroll-line" aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <section class="proof-strip reveal" aria-label="Community roles and badges">
+        <div class="proof-copy">
+          <span class="proof-kicker">Built for belonging</span>
+          <p>Roles, badges, and little rituals that make a place feel yours.</p>
+        </div>
+        <div class="proof-badges" aria-label="Example Cordia badges">
+          <span class="badge-chip"><img src="assets/badge-founder.png" alt="" /><span>Founder</span></span>
+          <span class="badge-chip"><img src="assets/badge-helper.png" alt="" /><span>Helper</span></span>
+          <span class="badge-chip"><img src="assets/badge-voice-veteran.png" alt="" /><span>Voice veteran</span></span>
+          <span class="badge-chip"><img src="assets/badge-bug-hunter.png" alt="" /><span>Bug hunter</span></span>
+        </div>
+      </section>
+
+      <section class="section features" id="features">
+        <div class="section-head reveal">
+          <p class="eyebrow">Everything in one place</p>
+          <h2>More than a chat window.</h2>
+          <p>
+            Cordia keeps the whole rhythm of your community together — the quick check-ins, the
+            long calls, and the people who make it feel like home.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="feature-icon feature-icon--violet"><svg class="icon" aria-hidden="true"><use href="#icon-server"></use></svg></span>
+            <h3>Servers &amp; channels</h3>
+            <p>Give every corner of your community a home, from #general to the late-night lounge.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon feature-icon--mint"><svg class="icon" aria-hidden="true"><use href="#icon-message"></use></svg></span>
+            <h3>DMs &amp; friends</h3>
+            <p>One-to-one conversations, friend requests, presence, and a quieter way to stay close.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon feature-icon--rose"><svg class="icon" aria-hidden="true"><use href="#icon-mic"></use></svg></span>
+            <h3>Voice, video &amp; screenshare</h3>
+            <p>Drop into a call with one click, share your screen, and pick up where you left off.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon feature-icon--amber"><svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg></span>
+            <h3>Private by design</h3>
+            <p>End-to-end encrypted DMs, device unlock, and a recovery code you control.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon feature-icon--blue"><svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg></span>
+            <h3>Everywhere you are</h3>
+            <p>Use Cordia in the browser, as an installable app, or from the desktop shell.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon feature-icon--violet"><svg class="icon" aria-hidden="true"><use href="#icon-badge"></use></svg></span>
+            <h3>Roles, badges &amp; admin</h3>
+            <p>Custom groups, permissions, moderation tools, and a console for the people who keep it running.</p>
+          </article>
+        </div>
+
+        <div class="feature-tags reveal" aria-label="More Cordia features">
+          <span>Polls</span>
+          <span>Events</span>
+          <span>Mentions inbox</span>
+          <span>Channel search</span>
+          <span>Automod</span>
+          <span>Custom roles</span>
+          <span>Web push</span>
+          <span>Message reactions</span>
+        </div>
+      </section>
+
+      <section class="section showcase-section" id="tour">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">A closer look</p>
+          <h2>Made for the moments in between.</h2>
+          <p>
+            Jump into a voice room, catch up on mentions, or share your screen without leaving the
+            conversation. Cordia keeps the little things close.
+          </p>
+        </div>
+
+        <div class="showcase-row reveal">
+          <div class="showcase-copy">
+            <span class="showcase-kicker">
+              <svg class="icon" aria-hidden="true"><use href="#icon-headphones"></use></svg>
+              Voice rooms
+            </span>
+            <h3>Pull up a chair, not a support ticket.</h3>
+            <p>
+              Start a call from any channel, see who is around, and settle in. Mute, camera, and
+              screen share are one click away.
+            </p>
+            <ul class="check-list">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> One-click voice and video</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Screen share with the room</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Mute, deafen, and device controls</li>
+            </ul>
+          </div>
+
+          <div class="showcase-visual">
+            <div class="voice-room">
+              <div class="voice-room-top">
+                <span class="voice-room-title"><svg class="icon" aria-hidden="true"><use href="#icon-volume"></use></svg> Lounge</span>
+                <span class="voice-room-live"><i></i> Live</span>
+              </div>
+              <div class="voice-grid">
+                <div class="voice-tile voice-tile--violet">
+                  <span class="voice-avatar">A</span>
+                  <span class="voice-name">Aria</span>
+                  <span class="voice-mic"><svg class="icon" aria-hidden="true"><use href="#icon-mic"></use></svg></span>
+                </div>
+                <div class="voice-tile voice-tile--mint">
+                  <span class="voice-avatar">K</span>
+                  <span class="voice-name">Kai</span>
+                  <span class="voice-mic"><svg class="icon" aria-hidden="true"><use href="#icon-mic"></use></svg></span>
+                </div>
+                <div class="voice-tile voice-tile--rose">
+                  <span class="voice-avatar">J</span>
+                  <span class="voice-name">Juniper</span>
+                  <span class="voice-mic is-muted"><svg class="icon" aria-hidden="true"><use href="#icon-mic"></use></svg></span>
+                </div>
+                <div class="voice-tile voice-tile--codi">
+                  <img src="assets/codi-mascot.png" alt="" />
+                  <span class="voice-name">Codi</span>
+                </div>
+              </div>
+              <div class="voice-room-controls">
+                <span class="control-pill"><svg class="icon" aria-hidden="true"><use href="#icon-mic"></use></svg> Mute</span>
+                <span class="control-pill"><svg class="icon" aria-hidden="true"><use href="#icon-camera"></use></svg> Video</span>
+                <span class="control-pill"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg> Share</span>
+                <span class="control-pill control-pill--leave"><svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg></span>
+              </div>
+            </div>
+            <div class="showcase-float showcase-float--mint">
+              <svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg> 3 in voice
+            </div>
+            <div class="showcase-float showcase-float--violet">
+              <svg class="icon" aria-hidden="true"><use href="#icon-sliders"></use></svg> Audio tuned
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-row showcase-row--reverse reveal">
+          <div class="showcase-copy">
+            <span class="showcase-kicker">
+              <svg class="icon" aria-hidden="true"><use href="#icon-at"></use></svg>
+              Mentions inbox
+            </span>
+            <h3>An inbox that knows what matters.</h3>
+            <p>
+              Mentions, replies, and unread channels collect in one calm list, so you can catch up
+              without scrolling through everything.
+            </p>
+            <ul class="check-list">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> @mention capture and highlights</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Per-conversation mute</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Unread badges that stay honest</li>
+            </ul>
+          </div>
+
+          <div class="showcase-visual">
+            <div class="inbox-window">
+              <div class="inbox-top">
+                <span><svg class="icon" aria-hidden="true"><use href="#icon-at"></use></svg> Mentions</span>
+                <span class="inbox-badge">3 new</span>
+              </div>
+              <div class="inbox-item is-unread">
+                <span class="chat-avatar chat-avatar--violet">A</span>
+                <span class="inbox-copy"><strong>Aria</strong><small>in #general</small><p>@you the voice room is live — join us?</p></span>
+                <time>2m</time>
+              </div>
+              <div class="inbox-item is-unread">
+                <span class="chat-avatar chat-avatar--mint">K</span>
+                <span class="inbox-copy"><strong>Kai</strong><small>in #design-lab</small><p>@you pushed the new icons. take a look.</p></span>
+                <time>18m</time>
+              </div>
+              <div class="inbox-item">
+                <span class="chat-avatar chat-avatar--rose">J</span>
+                <span class="inbox-copy"><strong>Juniper</strong><small>in #late-night</small><p>@you saved you a seat in Lounge.</p></span>
+                <time>1h</time>
+              </div>
+              <div class="inbox-foot">
+                <svg class="icon" aria-hidden="true"><use href="#icon-check-circle"></use></svg> You're all caught up
+              </div>
+            </div>
+            <div class="showcase-float showcase-float--mint">
+              <svg class="icon" aria-hidden="true"><use href="#icon-bell"></use></svg> Muted stays quiet
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split-section">
+        <div class="split-copy reveal">
+          <p class="eyebrow">Built for belonging</p>
+          <h2>More than a server list.</h2>
+          <p>
+            Cordia is designed around the way communities actually feel: a familiar place to
+            check in, a room for the people you click with, and just enough structure to keep
+            things kind.
+          </p>
+          <ul class="check-list">
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Channels with context, not clutter</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Roles and badges that mean something</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Events, polls, mentions, and search</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Moderation and permissions that scale</li>
+          </ul>
+        </div>
+
+        <div class="community-board reveal" aria-label="Community organization preview">
+          <div class="board-top">
+            <div class="board-server">
+              <span class="board-server-icon">A</span>
+              <div><strong>Aurora Lab</strong><small>12 members · 4 online</small></div>
+            </div>
+            <span class="board-pill"><i></i> Live</span>
+          </div>
+          <div class="board-grid">
+            <div class="board-channels">
+              <span class="board-label">Text channels</span>
+              <span class="board-channel is-active"><svg class="icon" aria-hidden="true"><use href="#icon-hash"></use></svg> general <b>3</b></span>
+              <span class="board-channel"><svg class="icon" aria-hidden="true"><use href="#icon-hash"></use></svg> design-lab</span>
+              <span class="board-channel"><svg class="icon" aria-hidden="true"><use href="#icon-hash"></use></svg> late-night</span>
+              <span class="board-label board-label--voice">Voice</span>
+              <span class="board-channel"><svg class="icon" aria-hidden="true"><use href="#icon-volume"></use></svg> Lounge <em>3</em></span>
+            </div>
+            <div class="board-members">
+              <span class="board-label">Members</span>
+              <span class="board-member"><i class="mini-avatar mini-avatar--violet">A</i><span><strong>Aria</strong><small>Founder</small></span><img src="assets/badge-founder.png" alt="" /></span>
+              <span class="board-member"><i class="mini-avatar mini-avatar--mint">K</i><span><strong>Kai</strong><small>Moderator</small></span><img src="assets/badge-helper.png" alt="" /></span>
+              <span class="board-member"><i class="mini-avatar mini-avatar--rose">J</i><span><strong>Juniper</strong><small>Member</small></span><img src="assets/badge-voice-veteran.png" alt="" /></span>            </div>
+          </div>
+          <div class="board-footer">
+            <span class="board-footer-icon"><svg class="icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg></span>
+            <span><strong>Make it feel like yours</strong><small>Custom roles, colors, badges, and member sections.</small></span>
+          </div>
+          <img class="board-codi" src="assets/codi-mascot.png" alt="" aria-hidden="true" />
+        </div>
+      </section>
+
+      <section class="privacy-section" id="privacy">
+        <div class="privacy-inner">
+          <div class="privacy-copy reveal">
+            <p class="eyebrow">Privacy, without the mystery</p>
+            <h2>Your conversations are yours.</h2>
+            <p>
+              Direct messages in Cordia use X3DH and the Double Ratchet to keep your words between
+              you and the person you’re talking to. Your encryption keys stay on your device, and a
+              recovery code helps you get back in when you need it.
+            </p>
+            <div class="privacy-note">
+              <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
+              <span>Server channels stay inside your workspace. Direct messages are end-to-end encrypted.</span>
+            </div>
+          </div>
+
+          <img class="security-codi" src="assets/codi-mascot.png" alt="" aria-hidden="true" />
+
+          <div class="security-card reveal" aria-label="Cordia privacy features">
+            <div class="security-head">
+              <span class="security-lock"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></span>
+              <span><strong>Encrypted DMs</strong><small>X3DH + Double Ratchet</small></span>
+              <span class="security-status"><i></i> On</span>
+            </div>
+            <div class="security-list">
+              <div><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Keys never leave your device unencrypted</span></div>
+              <div><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Device unlock and recovery-code backup</span></div>
+              <div><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Safety numbers for verifying a conversation</span></div>
+              <div><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Private attachments and message history</span></div>
+            </div>
+            <div class="security-foot">
+              <span><svg class="icon" aria-hidden="true"><use href="#icon-key"></use></svg> Password reset with your recovery code</span>
+              <span class="security-chip">E2EE</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section steps-section" id="start">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Getting started</p>
+          <h2>Three steps, then you're home.</h2>
+          <p>Cordia is quick to pick up. Make an account, find your people, and make the place yours.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <span class="step-number">01</span>
+            <span class="step-icon step-icon--violet"><svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg></span>
+            <h3>Make an account</h3>
+            <p>Sign in from the web or desktop app and set up your profile in a minute.</p>
+          </article>
+          <article class="step-card reveal">
+            <span class="step-number">02</span>
+            <span class="step-icon step-icon--mint"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></span>
+            <h3>Find your people</h3>
+            <p>Join a community, send a friend request, or start a server of your own.</p>
+          </article>
+          <article class="step-card reveal">
+            <span class="step-number">03</span>
+            <span class="step-icon step-icon--rose"><svg class="icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg></span>
+            <h3>Make it yours</h3>
+            <p>Set up channels, roles, and badges until the place feels like home.</p>
+          </article>
+        </div>
+
+        <div class="codi-tip reveal">
+          <img class="codi-tip-mascot" src="assets/codi-mascot.png" alt="Codi, the Cordia mascot" />
+          <div class="codi-bubble">
+            <span class="codi-name">Codi says</span>
+            <p>Start with one channel and a couple of friends. You can always grow it from there.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="#download">
+            Get Cordia
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="section download-section" id="download">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Take Cordia with you</p>
+          <h2>Your community, wherever you are.</h2>
+          <p>Start on the web, install the desktop app, or add Cordia to your home screen.</p>
+        </div>
+
+        <div class="download-grid">
+          <article class="download-card reveal">
+            <span class="platform-icon platform-icon--windows">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4.5 10.5 3v8H3zM12 2.7 21 1v10h-9zM3 13h7.5v8L3 19.5zM12 13h9v10l-9-1.7z" /></svg>
+            </span>
+            <div class="download-copy">
+              <span class="download-kicker">Windows</span>
+              <h3>Windows installer</h3>
+              <p>Windows 10/11 · 64-bit</p>
+            </div>
+            <a class="btn btn-primary download-button" href="downloads/Cordia-Setup-0.13.6.exe" download>
+              <svg class="icon" aria-hidden="true"><use href="#icon-download"></use></svg>
+              Download .exe
+            </a>
+            <span class="download-size">118 MB · per-user install, no admin</span>
+          </article>
+
+          <article class="download-card reveal">
+            <span class="platform-icon platform-icon--web"><svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg></span>
+            <div class="download-copy">
+              <span class="download-kicker">Web</span>
+              <h3>Open in your browser</h3>
+              <p>No install · works on modern browsers</p>
+            </div>
+            <a class="btn btn-ghost download-button js-app-link" href="/app">
+              <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg>
+              Launch Cordia
+            </a>
+            <span class="download-size">Sign in or create an account</span>
+          </article>
+
+          <article class="download-card reveal">
+            <span class="platform-icon platform-icon--mobile"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></span>
+            <div class="download-copy">
+              <span class="download-kicker">Mobile</span>
+              <h3>Install the web app</h3>
+              <p>Add Cordia to your home screen</p>
+            </div>
+            <a class="btn btn-ghost download-button js-app-link" href="/app">
+              <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg>
+              Open on your phone
+            </a>
+            <span class="download-size">Native Android &amp; iOS builds coming soon</span>
+          </article>
+        </div>
+
+        <div class="release-strip reveal">
+          <img class="release-mascot" src="assets/codi-mascot.png" alt="" />
+          <div class="release-copy">
+            <strong>What's inside Cordia 0.13.6</strong>
+            <span>Encrypted DMs, voice and video, an installable web app, and a Windows build.</span>
+          </div>
+          <a class="release-link" href="/status">
+            Check service status
+            <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg>
+          </a>
+        </div>
+
+        <p class="download-note reveal">
+          Version 0.13.6 · Windows installer is ready, and the web app needs no install. macOS and native mobile builds are not published yet.
+        </p>
+      </section>
+
+<section class="section pricing-section" id="support">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Support</p>
+          <h2>Free where it matters.<br />Free everywhere else too.</h2>
+          <p>
+            One account, every device, every feature. There is no Pro tier, no card on file and
+            nothing to cancel &mdash; the tip jar below is the whole business model.
+          </p>
+        </div>
+
+        <div class="support-panel reveal">
+          <div class="support-qr">
+            <img
+              src="qr-code.png"
+              alt="Buy Me a Coffee QR code"
+              width="248"
+              height="248"
+              loading="lazy"
+            />
+          </div>
+          <div class="support-panel-copy">
+            <span class="support-eyebrow">Buy me a coffee</span>
+            <h3>Scan it with your phone</h3>
+            <p>
+              The code opens a page where you can leave a one-off tip of whatever size you like.
+              Nothing about your account changes: no plan, no card on file, nothing to cancel.
+            </p>
+            <ul class="support-list">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Pays for storage and bandwidth, the only two things that cost us money</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Keeps the free plan free without ads, a trial clock, or another way to make money</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Gets you the Supporter badge on your profile &mdash; handed out by hand, so give it a day</span></li>
+            </ul>
+            <p class="support-fine">
+              One-off only. There is no subscription to this, and nothing to cancel later.
+            </p>
+          </div>
+        </div>
+
+        <div class="pricing-strip reveal">
+          <div class="strip-col">
+            <h3>Free forever</h3>
+            <ul>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Unlimited messages, history, and search</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Unlimited servers, channels, threads, DMs, and group DMs</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Voice, video, screen share, and group calls</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>50 MB per upload and 5 GB total storage</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Every emoji, including every custom emote</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Animated avatar and banner, accent colour, full profile editing</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>End-to-end encrypted DMs</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span>Moderation, automod, audit log, and the admin console</span></li>
+            </ul>
+          </div>
+          <div class="strip-col strip-col--never">
+            <h3>Never</h3>
+            <ul>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg><span>Message length or history limits</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg><span>Emoji behind a paywall</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg><span>Reduced call or screen-share quality</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg><span>Ads, of any kind</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg><span>Selling your data</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg><span>A paid tier appearing later</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pricing-note reveal">
+          <h3>Why we ask</h3>
+          <p>
+            Only two things here actually cost money: storing the files people upload, and moving
+            voice, video, and messages between them. Everything else is close to free at our size.
+            Tips cover those two bills, which is why nothing has to sit behind a paywall and why
+            there are no ads to fall back on.
+          </p>
+        </div>
+
+        <div class="pricing-faq">
+          <h3 class="pricing-faq-title">About supporting Cordia</h3>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Is the free plan a trial?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+              <p>No. Free is the product, not a countdown. It has no end date, no card on file, and nothing to cancel. Every feature on this page is in it.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What do I get for tipping?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+              <p>A Supporter badge on your profile, and our thanks. Nothing is unlocked, because nothing was locked to begin with. Tips are one-off, so there is no subscription to manage or cancel.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Do you sell my data or show ads?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+              <p>No. There are no ads and there never will be, and your data is not for sale. Tips exist so the project does not have to depend on either one.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Who processes the payment?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+              <p>Buy Me a Coffee, on their own site. Your card details never reach Cordia, and we are not told what you paid &mdash; only that someone did.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-head reveal">
+          <p class="eyebrow">A few good questions</p>
+          <h2>Before you dive in.</h2>
+          <div class="faq-codi-peek" aria-hidden="true">
+            <img class="faq-mascot" src="assets/codi-mascot.png" alt="" />
+            <div class="faq-codi-bubble">
+              <span>Codi</span>
+              <p>Ask me anything.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>Is Cordia free to use?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+            <p>Cordia is free to download and use. Create an account and join a community on Cordia.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Are my messages private?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+            <p>Direct messages are end-to-end encrypted with X3DH and the Double Ratchet. Server channels are visible to members with access to that channel, so share accordingly.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>What do I need to run Cordia?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+            <p>The desktop app runs on Windows 10/11 or a modern x64 Linux desktop. The web app needs a current browser and a Cordia account.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Can I use it on my phone?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+            <p>Yes — open Cordia in your phone’s browser and add it to your home screen as a web app. Native Android and iOS builds are in the works.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Does Cordia work offline?<svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></summary>
+            <p>The app shell can load without a connection, but messages, calls, and live updates need the server. Background push alerts are available in the installed web app.</p>
+          </details>
+        </div>
+
+        <div class="release-strip faq-codi reveal">
+          <img class="release-mascot" src="assets/codi-mascot.png" alt="" />
+          <div class="release-copy">
+            <strong>Still curious?</strong>
+            <span>Ask in the community, or check the latest service status.</span>
+          </div>
+          <a class="release-link" href="/status">
+            Service status
+            <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="final-cta reveal">
+        <div class="final-cta-glow" aria-hidden="true"></div>
+        <img class="final-mascot" src="assets/codi-mascot.png" alt="" />
+        <div class="final-copy">
+          <p class="eyebrow">Ready when you are</p>
+          <h2>Your next favorite place to hang out.</h2>
+          <p>Bring your people, pick a channel, and stay a while.</p>
+        </div>
+        <div class="final-actions">
+          <a class="btn btn-primary btn-lg" href="#download">
+            <svg class="icon" aria-hidden="true"><use href="#icon-download"></use></svg>
+            Get Cordia
+          </a>
+          <a class="btn btn-ghost btn-lg js-app-link" href="/app">Open the web app</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="Cordia home">
+            <img class="brand-mark" src="assets/codi-mark.png" alt="" width="32" height="32" />
+            <span class="brand-word">cordia</span>
+          </a>
+          <p class="footer-tagline">A calmer place to talk.</p>
+        </div>
+        <nav class="footer-cols" aria-label="Footer">
+          <div class="footer-col">
+            <h2>Product</h2>
+            <a href="/#features">Features</a>
+            <a href="/#privacy">Security</a>
+            <a href="/#download">Download</a>
+          </div>
+          <div class="footer-col">
+            <h2>Resources</h2>
+            <a href="/#support">Support</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/status">Status</a>
+          </div>
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <a href="/guidelines">Guidelines</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-base">
+        <span>Cordia 0.13.6 · Built with care for communities.</span>
+        <a class="js-app-link" href="/app">Open Cordia</a>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

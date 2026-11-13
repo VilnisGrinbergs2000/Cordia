@@ -1,0 +1,40 @@
+appId: app.cordia.client
+productName: Cordia
+copyright: Copyright 2026 Cordia
+directories:
+  output: release
+  buildResources: electron/build
+files:
+  - electron/**/*
+  - client/dist/**/*
+  - package.json
+asar: true
+npmRebuild: false
+win:
+  target:
+    - nsis
+  icon: electron/build/icon.png
+nsis:
+  # No spaces in the artifact name: every script that installs this file
+  # would otherwise need to quote it.
+  artifactName: Cordia-Setup-${version}.${ext}
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+mac:
+  target:
+    - dmg
+  category: public.app-category.social-networking
+  icon: electron/build/icon.png
+  extendInfo:
+    NSMicrophoneUsageDescription: Cordia uses your microphone for voice calls.
+    NSCameraUsageDescription: Cordia uses your camera for video calls.
+linux:
+  target:
+    - AppImage
+  category: Network
+  executableName: cordia
+  syncDesktopName: true
+  synopsis: Cordia community chat
+  description: Cordia is a realtime community platform with voice, video, friends, profiles, badges and an admin console.
+  icon: electron/build/icon.png

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090c11" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content="Cordia" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <title>Status · Cordia</title>
+    <meta name="description" content="Live status for Cordia: API, realtime messaging, voice and video, push notifications, and downloads. Updated every minute." />
+    <link rel="canonical" href="https://cordia.ext.io/status" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cordia" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://cordia.ext.io/status" />
+    <meta property="og:title" content="Status · Cordia" />
+    <meta property="og:description" content="Live status for Cordia: API, realtime messaging, voice and video, push notifications, and downloads. Updated every minute." />
+    <meta property="og:image" content="https://cordia.ext.io/assets/og-card.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Cordia service status." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Status · Cordia" />
+    <meta name="twitter:description" content="Live status for Cordia: API, realtime messaging, voice and video, push notifications, and downloads. Updated every minute." />
+    <meta name="twitter:image" content="https://cordia.ext.io/assets/og-card.png" />
+    <meta name="twitter:image:alt" content="Cordia service status." />
+
+    <link rel="icon" type="image/png" href="/assets/codi-mark.png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="subpages.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://cordia.ext.io/status#page",
+            "url": "https://cordia.ext.io/status",
+            "name": "Cordia Status",
+            "description": "Live status for Cordia services.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://cordia.ext.io/#website"
+            },
+            "publisher": {
+              "@id": "https://cordia.ext.io/#organization"
+            },
+            "dateModified": "2026-11-04",
+            "breadcrumb": {
+              "@id": "https://cordia.ext.io/status#breadcrumb"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://cordia.ext.io/status#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://cordia.ext.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Cordia Status",
+                "item": "https://cordia.ext.io/status"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-refresh" viewBox="0 0 24 24">
+        <path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4" />
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </symbol>
+      <symbol id="icon-mic" viewBox="0 0 24 24">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+      </symbol>
+      <symbol id="icon-bell" viewBox="0 0 24 24">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <path d="m7 10 5 5 5-5M12 15V3" />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m5 12 4 4L19 6" />
+      </symbol>
+      <symbol id="icon-check-circle" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="m8 12 2.5 2.5L16 9" />
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="icon-server" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="8" rx="2" />
+        <rect x="2" y="14" width="20" height="8" rx="2" />
+        <path d="M6 6h.01M6 18h.01" />
+      </symbol>
+    </svg>
+
+    <div class="page-glow page-glow--violet" aria-hidden="true"></div>
+    <div class="page-glow page-glow--mint" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Cordia home">
+          <img class="brand-mark" src="assets/codi-mark.png" alt="" width="36" height="36" />
+          <span class="brand-word">cordia</span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <a href="/#features">Features</a>
+          <a href="/#tour">Tour</a>
+          <a href="/#privacy">Privacy</a>
+          <a href="/#download">Download</a>
+          <a href="/#support">Support</a>
+          <a href="/guidelines">Guidelines</a>
+          <a href="/privacy">Privacy Policy</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="btn btn-ghost btn-sm js-app-link" href="/app">Sign in</a>
+          <a class="btn btn-primary btn-sm" href="/#download">
+            <svg class="icon" aria-hidden="true"><use href="#icon-download"></use></svg>
+            Get Cordia
+          </a>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="site-nav"
+            aria-expanded="false"
+          >
+            <svg class="icon menu-icon" aria-hidden="true"><use href="#icon-menu"></use></svg>
+            <svg class="icon close-icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="status-page">
+      <section class="status-hero">
+        <div class="status-hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Cordia service status</p>
+          <h1>All systems<br /><span>operational.</span></h1>
+          <p>
+            A live look at the services behind Cordia. This page checks the API and downloads
+            whenever you open or refresh it.
+          </p>
+          <span class="status-badge" id="status-hero-badge"><i></i> Checking status…</span>
+          <div class="status-actions">
+            <button class="btn btn-primary" id="status-refresh" type="button">
+              <svg class="icon" aria-hidden="true"><use href="#icon-refresh"></use></svg>
+              Refresh status
+            </button>
+            <a class="btn btn-ghost" href="/">
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              Back to Cordia
+            </a>
+          </div>
+        </div>
+
+        <div class="status-art" aria-hidden="true">
+          <img src="assets/codi-mascot.png" alt="" />
+        </div>
+      </section>
+
+      <section class="status-panel" aria-label="Service components">
+        <div class="status-summary" aria-live="polite">
+          <div class="status-summary-left">
+            <span class="status-dot-lg" id="status-overall-dot"></span>
+            <div>
+              <strong id="status-overall-label">Checking status…</strong>
+              <small id="status-last-checked">Waiting for the first check.</small>
+            </div>
+          </div>
+          <div class="status-summary-meta">
+            <span id="status-latency">Latency —</span>
+            <span class="status-chip" id="status-overall-chip">Checking</span>
+          </div>
+        </div>
+
+        <div class="component-list">
+          <div class="component-row" data-component="api">
+            <span class="component-icon"><svg class="icon" aria-hidden="true"><use href="#icon-server"></use></svg></span>
+            <span class="component-copy"><strong>API &amp; web app</strong><small>Accounts, servers, channels, DMs, and uploads</small></span>
+            <span class="component-status is-unknown"><i></i> Checking…</span>
+          </div>
+          <div class="component-row" data-component="realtime">
+            <span class="component-icon"><svg class="icon" aria-hidden="true"><use href="#icon-message"></use></svg></span>
+            <span class="component-copy"><strong>Realtime messaging</strong><small>Live messages, typing, and presence</small></span>
+            <span class="component-status is-unknown"><i></i> Checking…</span>
+          </div>
+          <div class="component-row" data-component="voice">
+            <span class="component-icon"><svg class="icon" aria-hidden="true"><use href="#icon-mic"></use></svg></span>
+            <span class="component-copy"><strong>Voice &amp; video</strong><small>WebRTC calls, screenshare, and device controls</small></span>
+            <span class="component-status is-unknown"><i></i> Checking…</span>
+          </div>
+          <div class="component-row" data-component="push">
+            <span class="component-icon"><svg class="icon" aria-hidden="true"><use href="#icon-bell"></use></svg></span>
+            <span class="component-copy"><strong>Push notifications</strong><small>Web push and desktop alerts</small></span>
+            <span class="component-status is-unknown"><i></i> Checking…</span>
+          </div>
+          <div class="component-row" data-component="downloads">
+            <span class="component-icon"><svg class="icon" aria-hidden="true"><use href="#icon-download"></use></svg></span>
+            <span class="component-copy"><strong>Desktop downloads</strong><small>Windows portable build and Linux AppImage</small></span>
+            <span class="component-status is-unknown"><i></i> Checking…</span>
+          </div>
+        </div>
+
+        <p class="status-note">
+          Realtime messaging, voice, and push share the same Cordia service, so they follow the API
+          result. Component-level checks are not individually exposed yet.
+        </p>
+      </section>
+
+      <section class="status-incidents">
+        <div class="section-head">
+          <p class="eyebrow">Incident history</p>
+          <h2>No incidents reported.</h2>
+          <p>When something goes wrong, updates will land here with a short timeline and resolution notes.</p>
+        </div>
+        <div class="empty-state">
+          <img src="assets/codi-mascot.png" alt="" />
+          <div>
+            <strong>Quiet on the status front.</strong>
+            <p>Codi will speak up the moment something needs attention.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="Cordia home">
+            <img class="brand-mark" src="assets/codi-mark.png" alt="" width="32" height="32" />
+            <span class="brand-word">cordia</span>
+          </a>
+          <p class="footer-tagline">A calmer place to talk.</p>
+        </div>
+        <nav class="footer-cols" aria-label="Footer">
+          <div class="footer-col">
+            <h2>Product</h2>
+            <a href="/#features">Features</a>
+            <a href="/#privacy">Security</a>
+            <a href="/#download">Download</a>
+          </div>
+          <div class="footer-col">
+            <h2>Resources</h2>
+            <a href="/#support">Support</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/status">Status</a>
+          </div>
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <a href="/guidelines">Guidelines</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-base">
+        <span>Cordia 0.13.6 · Built with care for communities.</span>
+        <a class="js-app-link" href="/app">Open Cordia</a>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="status.js"></script>
+  </body>
+</html>

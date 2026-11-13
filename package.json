@@ -1,0 +1,58 @@
+{
+  "name": "cordia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cordia - a realtime community platform with voice, video, friends, profiles, badges and an admin console.",
+  "author": "Cordia contributors",
+  "license": "AGPL-3.0-only",
+  "homepage": "https://cordia.ext.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VilnisGrinbergs2000/Cordia.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VilnisGrinbergs2000/Cordia/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "desktopName": "cordia",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n server,client -c cyan,magenta \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build",
+    "build:check": "npm --prefix client run build:check",
+    "build:desktop": "npm --prefix client run build:desktop",
+    "icons": "node client/scripts/gen-icons.mjs",
+    "start": "npm --prefix server start",
+    "desktop:dev": "concurrently -k -n server,client,electron -c cyan,magenta,blue \"npm --prefix server run dev\" \"npm --prefix client run dev\" \"wait-on tcp:3001 tcp:5173 && cross-env CORDIA_DEV_URL=http://localhost:5173 electron .\"",
+    "desktop:attach": "cross-env CORDIA_DEV_URL=http://localhost:5173 electron .",
+    "desktop:build": "npm --prefix client run build:desktop && electron-builder",
+    "desktop:installer": "node scripts/build-installer.mjs",
+    "desktop:build:linux": "npm --prefix client run build:desktop && electron-builder --linux",
+    "desktop:pack": "npm --prefix client run build:desktop && electron-builder --dir",
+    "mobile:build": "npm --prefix client run build:mobile && cap sync",
+    "mobile:sync": "cap sync",
+    "mobile:android": "cap open android",
+    "mobile:ios": "cap open ios",
+    "mobile:add:android": "cap add android",
+    "mobile:add:ios": "cap add ios"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "concurrently": "^9.1.2",
+    "cross-env": "^10.1.0",
+    "electron": "^45.1.0",
+    "electron-builder": "^26.18.0",
+    "wait-on": "^9.5.1"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/ios": "^8.5.3",
+    "@capacitor/local-notifications": "^8.3.1",
+    "electron-updater": "^6.8.11"
+  }
+}

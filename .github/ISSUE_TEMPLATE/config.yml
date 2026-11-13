@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/VilnisGrinbergs2000/Cordia/security/advisories/new
+    about: Report a vulnerability privately. Do not open a public issue.
+  - name: Documentation
+    url: https://github.com/VilnisGrinbergs2000/Cordia/tree/main/docs
+    about: Setup, configuration, architecture, API, deployment, and development guides.
+  - name: Questions and ideas
+    url: https://github.com/VilnisGrinbergs2000/Cordia/discussions
+    about: Ask a question or discuss a change before opening an issue.

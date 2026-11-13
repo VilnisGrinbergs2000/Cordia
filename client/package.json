@@ -1,0 +1,42 @@
+{
+  "name": "cordia-client",
+  "version": "0.13.9",
+  "private": true,
+  "description": "Cordia web, desktop, and mobile client.",
+  "license": "AGPL-3.0-only",
+  "homepage": "https://cordia.ext.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VilnisGrinbergs2000/Cordia.git",
+    "directory": "client"
+  },
+  "bugs": {
+    "url": "https://github.com/VilnisGrinbergs2000/Cordia/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "scripts": {
+    "sync:emoji": "node scripts/sync-twemoji.mjs",
+    "dev": "npm run sync:emoji && vite",
+    "build": "npm run sync:emoji && vite build",
+    "build:check": "npm run sync:emoji && vite build && node scripts/check-bundle.mjs",
+    "build:desktop": "npm run sync:emoji && vite build --mode desktop",
+    "build:mobile": "npm run sync:emoji && vite build --mode mobile",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "hash-wasm": "^4.12.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@twemoji/svg": "^15.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7"
+  }
+}

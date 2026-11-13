@@ -1,0 +1,73 @@
+name: Feature request
+description: Suggest a capability or an improvement.
+title: '[Feature]: '
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the problem before the solution. A clear problem is easier to evaluate than a specific implementation.
+
+        Cordia has no paid tier and no feature gating. Please do not frame a request as a paid upgrade or an entitlement.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Who runs into this, and what do they do today instead?
+      placeholder: When a server has many channels, finding an old decision means scrolling. There is no way to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to happen?
+      description: Describe the behaviour, not necessarily the code.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Existing workarounds, other products, or a smaller version of the idea.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Messaging
+        - Voice and video
+        - Servers and permissions
+        - Direct messages and E2EE
+        - Uploads and storage
+        - Notifications
+        - Bots and integrations
+        - Administration and safety
+        - Desktop or mobile
+        - Documentation and deployment
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Mockups, links, or related issues.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
+        - label: I understand this is a volunteer project and a request is not a commitment to build it.
+          required: true
