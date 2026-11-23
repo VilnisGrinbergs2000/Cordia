@@ -43,7 +43,7 @@
     "@capacitor/cli": "^8.6.2",
     "concurrently": "^10.0.7",
     "cross-env": "^10.1.0",
-    "electron": "^45.3.2",
+    "electron": "^45.4.1",
     "electron-builder": "^26.18.0",
     "wait-on": "^9.5.1"
   },
